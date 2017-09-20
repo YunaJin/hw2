@@ -1,0 +1,22 @@
+1. Write a java function to calculate the salary of an employee based on the following rules.
+		i. function takes input of number of hours an employee worked and returns the salary.
+		ii.  The first 36 hours worked are paid at a rate of 15.0, then the next 5 hours are paid at a rate of 15 * 1.5. 
+    Hours after that up to a max of 48 are paid at a rate of 15 * 2.
+    
+    pulic Employee.WorkedHour{
+    print:"Please input the number of hours an employee worked"
+    input Employee.WorkedHour
+    hours=int[Employee.WorkedHour]
+    If hours <= int[40],
+      if hours <= 36,
+        salary= hours*15
+        println(: "
+      salary= 15*(36+4*1.5+(hour-40)*2)
+      println(: "salary is" + salary)salary is" + salary)
+      else,
+        salary= 15*(36+(hours-36)*1.5)
+        println(: "salary is" + salary)
+    else,
+    
+      
+      
