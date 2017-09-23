@@ -1,22 +1,193 @@
-1. Write a java function to calculate the salary of an employee based on the following rules.
-		i. function takes input of number of hours an employee worked and returns the salary.
-		ii.  The first 36 hours worked are paid at a rate of 15.0, then the next 5 hours are paid at a rate of 15 * 1.5. 
-    Hours after that up to a max of 48 are paid at a rate of 15 * 2.
-    
-    pulic Employee.WorkedHour{
-    print:"Please input the number of hours an employee worked"
-    input Employee.WorkedHour
-    hours=int[Employee.WorkedHour]
-    If hours <= int[40],
-      if hours <= 36,
-        salary= hours*15
-        println(: "
-      salary= 15*(36+4*1.5+(hour-40)*2)
-      println(: "salary is" + salary)salary is" + salary)
-      else,
-        salary= 15*(36+(hours-36)*1.5)
-        println(: "salary is" + salary)
-    else,
-    
+//1. Write a java function to calculate the salary of an employee based on the following rules.
+		
+public class Employee {
+    double salary;
+
+    public double employeeSalary( double hours){
+        if (hours<= 41){
+            if (hours <= 36){
+                salary= hours*15;
+                System.out.println("salary is " + salary);
+            } else {
+                salary= 15*(36+(hours-36)*1.5);
+                System.out.println( "salary is " + salary);
+            }
+        } else {
+            salary= 15*(36+(4*1.5)+(hours-41)*2);
+            System.out.println( "salary is " + salary);
+        }
+
+        return 0;
+    }
+
+    public static void main(String args[]) {
+        Employee employee = new Employee();
+        employee.employeeSalary(30);
+        }
+}      
       
-      
+//2.Write a java function that adds all the digits of an integer until it is single digit.
+
+public class AddDigit {
+    public int addDigits(int n) {
+        if (n == 0){
+            return 0;
+        }
+        else{
+            return n % 10 + addDigits(n / 10);
+        }
+    }
+    public int lessThanTen(int n) {
+        if (n < 10) {
+            return n;
+        }
+        while (n >= 10) {
+            n = addDigits(n);
+        }
+        return n;
+    }
+
+
+    public static void main(String args[]){
+        AddDigit d = new AddDigit();
+        System.out.println(d.lessThanTen(d.addDigits(12345)));
+
+    }
+}
+
+//3.Write a java function to print all perfect number between 1 and n.
+
+public class PerfectNumbers {
+
+    public void PrintPerfectNumbers(int n) {
+        int i;
+        for(i = 1; i<= n;i++){
+            int count=0;
+            for(int k=1;k<i;k++){
+                if(i % k == 0){
+                    count = count +k;
+                }
+            }
+
+            if(count == i){
+                System.out.println(count);
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        PerfectNumbers pf = new PerfectNumbers();
+        pf.PrintPerfectNumbers(10000);
+    }
+}
+
+//4.Write a java class called pizza with (Add detail as needed) : 
+class Pizza {
+
+    public enum PizzaType {
+        cheese,pepperoni,supreme
+    }
+
+    PizzaType pt;
+    double price;
+    int loyaltyPoints;
+
+    public Pizza() {
+        this.pt = PizzaType.cheese;
+        this.price = 5.9;
+        this.loyaltyPoints = 1;
+    }
+
+    public Pizza(PizzaType type, double price) {
+        this.pt = pt;
+        this.price = price;
+    }
+
+    public Pizza(PizzaType type,  int loyalty_points) {
+        this.pt = pt;
+        this.loyaltyPoints = loyaltyPoints;
+    }
+
+}
+
+//5.Write a java class called customer (Add detail as needed) : 
+
+public class Customer {
+    String name;
+    String pizzaType;
+    double price;
+
+    public void pizzaType() {
+        String[] pizzaType = new String[][];
+        pizzaType[0] = "CHEESE PIZZA";
+        pizzaType[1] = "PEPPERONI PIZZA";
+        pizzaType[2] = "SUPREME PIZZA";
+
+
+    }
+
+    public double getPrice() {
+        double[] price = new double[];
+        price[0] = 5.0;
+        price[1] = 6.0;
+        price[2] = 6.9;
+    }
+
+
+
+
+    public static void main(String args[]) {
+        Customer yuna= new Customer();
+        System.out.println(yuna.pizzaType());
+        System.out .println(yuna.getPrice());
+
+
+    }
+}
+
+//6.Write a Java program that generates an isosceles right angled triangle made of asterisks. 
+
+public class Triangle {
+
+    public static String printSpace(int n) {
+        String s = "";
+        for (int i = 0; i < n; i++) {
+            s = s + " ";
+        }
+        return s;
+
+    }
+
+    public static void printTriangle(int row) {
+
+        for (int i = 0; i < row - 1; i++) {
+
+            if (i == 0) {
+
+                System.out.println("*");
+
+            }
+
+            if (i == row - 2) {
+
+                for (int j = 0; j < row; j++) {
+
+                    System.out.print("*");
+
+                }
+
+            } else {
+
+                System.out.println("*" + printSpace(i) + "*");
+
+            }
+
+        }
+
+    }
+
+    public static void main(String[] args) {
+        printTriangle(6);
+    }
+}
